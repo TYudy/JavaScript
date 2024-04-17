@@ -8,13 +8,13 @@ class perro{
     }
     verInfo(){
         document.write(`${this.info}`)
-
     }
-    
-
-
-
+    ladrar(){
+        document.write("Ladrido")
+    }
 }
+
+
 
 let Max = new perro("Max","Labrador Retriever",5,"Dorado");
 let Luna= new perro("Luna","Pastor Alemán",3,"Negro y marron");
