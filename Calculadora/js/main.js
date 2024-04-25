@@ -12,13 +12,18 @@ var fun = {
     },
     oprimirteclas:function(tecla){
         po.action = tecla.target.getAttribute("class");
-        fun.calculadora(po.action);
+        po.digito = tecla.target.innerHTML;
+        fun.calculadora(po.action,po.digito);
 
     },
     calculadora:function(action){
 
         switch(action){
             case "numero":
+                po.cantising = 0;
+                if(po.operaciones.innerHTML == 0){
+                    po.operaciones.innerHTML = 0;
+                }
                 console.log("numero");
             break;
             case "simbolo":
@@ -36,8 +41,8 @@ var fun = {
             case "decimal":
                 console.log("decimal");
             break;
-            case "decimal":
-                console.log("decimal");
+            case "pi":
+                console.log("pi");
             break;
             case "decimal":
                 console.log("decimal");
