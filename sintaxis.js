@@ -33,6 +33,8 @@ if(Nota >= 3.8){
 
 }
 else {
+
+    
     document.write(`Estudiante ${Noestudiante} su nota es ${Nota} por lo tanto usted no aprobo la asignatura`)
 }
 
