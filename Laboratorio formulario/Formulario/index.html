@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h2>Laboratorio validación de formulario</h2>
+    <div class="container">
+        <form action="" onsubmit="return formulario()">
+            <label for="email">Email</label>
+            <input name="email"type="email" id="email" placeholder="User's email" >
+            <label for="usuario">Username</label>
+            <input name="usuario"type="text" id="username" placeholder="User" >
+            <label for="contraseña">Password</label>
+            <input name="contraseña"type="password" id="password" placeholder="Password" >
+            <label for="sle"><strong>Ciudad</strong></label>
+            <select name="Ciudad" id="City">
+                <option value="Seleccionar">Seleccionar</option>
+                <option value="Bog">Bogotá</option>
+                <option value="Med">Medellin</option>
+                <option value="Buc">Bucaramanga</option>
+                
+            </select>
+            <fieldset class="hobbies">
+                <label for="Hobbie" id="pasa"><strong>Hobbies </strong></label><br>
+                <input name="Hobbie"type="checkbox"  value="Caminar">
+                <label for="">Caminar </label>
+                <input name="Hobbie"type="checkbox" value="Nadar"> 
+                <label for="">Nadar</label> 
+                <input name="Hobbie"type="checkbox" value="Leer"> 
+                <label for="">Leer</label> 
+                <input name="Hobbie"type="checkbox" value="Escuchar musica"> 
+                <label for="">Escuchar musica</label>
+                <input name="Hobbie"type="checkbox" value="Dormir"> 
+                <label for="">Dormir</label>
+                
+                </fieldset>
+            
+
+            <fieldset class="gender">
+            <label for="gender" id="genero"><strong>Genero </strong></label>
+            <input name="gender"type="radio" value="men" > 
+            <label for="">Hombre</label>
+            <input name="gender"type="radio" value="women" > 
+            <label for="">Mujer</label>
+            </fieldset>
+            <input type="text" id="coment">
+            
+            <div id="terms">
+            <input type="checkbox" id="terminos">Acepto terminos y condiciones
+            <input type="submit" value="Enviar" type="text" id="comentarios" name="comentarios" minlength="4" maxlength="8" size="10" >
+            </div>
+       
+        </form>
+    </div>
+    
+</body>
+<script src="js/LabValidar.js"></script>
+</html>
