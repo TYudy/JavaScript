@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Control gastos</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="text-center">Gasto semanal</h1>
+
+        </header>
+        <section class="principal">
+            <div class="row">
+                <div class="col">
+                    <div class="contenido-gasto">
+                        <h2 class="text-center">Añade tus gastos aqui</h2>
+                        <form action="#" id="agregar-gasto">
+                            <div class="form-group">
+                                <label for="gasto">Gasto</label>
+                                <input type="text" class="form-control" id="gasto" placeholder="Nombre del gasto">
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidad" placeholder="Cantidad en $">
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark">Agregar</button>
+
+                        </form>
+                    </div>
+                    
+                </div>
+                <div class="col">
+                    <div class="contenido Listado">
+                        <h2 class="text-center">Listado</h2>
+                            <div id="gastos">
+                                <ul class="list-group"></ul>
+                            </div>
+                        <div id="presupuesto" class="presupuesto">
+                            <div class="alert alert-warning">
+                                <p>
+                                    Presupuesto: $
+                                    <span id="total"></span>
+                                </p>
+                            </div>
+                            <div class="restante alert alert-secondary">
+                                <p>
+                                    Restante: $
+                                    <span id="restante"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+    </div>
+    <script src="js/registro.js"></script>
+    <!-- <script src="js/bootstrap.js"></script> -->
+</body>
+</html>
