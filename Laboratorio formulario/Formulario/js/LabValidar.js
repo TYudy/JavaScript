@@ -1,19 +1,20 @@
 function formulario(){
    
-    // var userv = usuario()
-    // var emailv = email()
-    // var passv = contrasena()
-    // var cityv = ciudad()
-    // pasatiempo()
-    // var genderv = genero()
-    // if(emailv && userv && passv && cityv && genderv){
-    //     alert(`Registro exitoso`);
-    //     return true;
-    // }else{
-    //     alert(`Verificar sus campos`);
-    //     return false;
-    // }
-    genero()
+    var userv = usuario()
+    var emailv = email()
+    var passv = contrasena()
+    var cityv = ciudad()
+    var pasav = pasatiempo()
+    var genderv = genero()
+    var terminosv = terminos()
+    if(emailv && userv && passv && cityv && genderv  && pasav && terminosv){
+        alert(`Registro exitoso`);
+        return true;
+    }else{
+        alert(`Verificar sus campos`);
+        return false;
+    }
+    
 }
 function ciudad(){
     var city = document.getElementById('City').value;
@@ -24,29 +25,39 @@ function ciudad(){
     }
 return true
 }
+function terminos(){
+    var terminos = document.querySelector('input[id="terminos"]:checked');
+    if(!terminos){
+        alert(`Por favor acepte los terminos y condiciones`);
+        return false
 
-// function pasatiempo(){
-//     var hobbie = document.querySelectorAll('input[type="checkbox"]')
-//     var seleccionados = []
-//     checkboxes.foreach(function(checkbox)
-// )
-//     if(checkbox.checked){
+    }
+    return true;
 
-//     }
-//     console.log(hobbie)
+}
+function pasatiempo(){
+    var hobbie = document.querySelectorAll('input[name="Hobbie"]')
+    if(hobbie.length == 0 || !Array.from(hobbie).some(hobby => hobby.checked)){
+        alert(`Selecciona al menos un pasatiempo`)
+        return false
+    }
+    return true
 
-
-// }
+}
 
 
 function genero() {
     var gender = document.querySelector('input[name="gender"]:checked');
-    var genderValue = gender.value;
+    
     if (!gender) {
         alert("Seleccione su género");
         return false;
     }
-    console.log(genderValue)
+    else{
+        var genderValue = gender.value;
+        console.log(genderValue)
+    }
+    
     return true;
 }
 function email(){

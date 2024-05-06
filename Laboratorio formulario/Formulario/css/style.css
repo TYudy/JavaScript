@@ -5,28 +5,31 @@ body{
 display: flex;
 justify-content: center;
 color: antiquewhite;
-margin-top: 10%;
+
 flex-wrap: wrap;
 font-family: monospace;
 font-size: large;
+flex-direction: column;
 }
 body h2{
-    width: 800px;
+    text-align: center;
     display: flex;
     align-self: center;
     font-family: monospace;
-    font-size: 80px;
+    font-size: 30px;
 }
 
 .container{
-   
+   padding-top: 40px;
+   padding-bottom:40px ;
     background-color: #ffc803;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 650px;
+    height: 100%;
     border-radius: 20px;
+    align-self: center;
     
     box-shadow:
     inset 0 -3em 3em rgba(0, 0, 0, 0.37),
@@ -39,7 +42,7 @@ form{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 30%;
+    width: 45%;
     gap: 20px;
     
     
@@ -78,3 +81,104 @@ input:focus{
     gap: 10px;
     width: 100%;
 }
+
+#City{
+    appearance: none;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    font-family: monospace;
+    text-align: center;
+    box-shadow:
+    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  
+}
+
+
+
+.hobbies{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+   
+    
+}
+.hobbies label{
+    text-align: left;
+}
+.hobbies input{
+   appearance: none;
+   width: 20px;
+   height: 20px;
+   border-radius: 0%;
+   cursor: pointer;
+
+}
+.hobbies input:disabled{
+   background-color: #363131;
+ 
+ }
+ .hobbies input:checked{
+    background-color: #260d0d;
+ 
+ }
+ .hobbies input:focus{
+    
+ 
+ }
+ .gender{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    
+    
+ }
+.gender input{
+    appearance: none;
+   width: 15px;
+   height: 15px;
+   border-radius: 100%;
+   cursor: pointer;
+
+}
+.gender input:checked{
+    background-color: #260d0d;
+ 
+ }
+ .gender label{
+    margin-left: 0%;
+ }
+
+
+
+#terminos{
+
+   width: 30px;
+   height: 20px;
+   border-radius: 0%;
+   cursor: pointer;
+}
+#terminos:disabled{
+    background-color: #363131;
+}
+#terminos:checked{
+    background-color: #260d0d;
+}
+
+
+
+
+ 
+ textarea{
+    width: 100%;
+    max-height: 300px;
+    
+    border: none;
+    box-shadow:
+    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    
+ }
