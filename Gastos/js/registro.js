@@ -37,6 +37,60 @@ class UI{
         document.querySelector('#total').textContent = cantidad.presupuesto
         document.querySelector('#restante').textContent = cantidad.restante
     }
+    imprimirAlerta(mensaje, tipo){
+        // crear el div
+        const divmensaje = document.createElement(`div`)
+        divmensaje.classList.add(`text-center`,`alert`)
+        // tipo error agrega una clase
+        if(tipo == `error`){
+            divmensaje.classList.add(`alert-danger`)
+        }else{
+            divmensaje.classList.add(`alert-sucess`)
+        }
+        // Mensaje error
+        divmensaje.textContent = mensaje;
+        document.querySelector(`.gasto`).insertBefore(divmensaje, formulario)
+
+        // quitar el alert despues de 3 segundos
+        setTimeout(()=>{
+            document.querySelector(`.listado .alert`).remove()
+
+
+        }, 3000)
+
+
+    }
+    // insertar los gastos a la lista
+    agregarGastolistado(gastos){
+        this.limpiarHTML();
+        // iterar sobre los gastos
+            gastos.forEach(gasto=>{
+                const{nombre, cantidad, id} = gasto;
+                // crear un li
+                const nuevoGasto= document.createElement(`li`);
+                nuevoGasto.className = `list-group-item d-flex jusify-content-between align-items-center`
+                nuevoGasto.dataset.id = id
+        
+                // insertar el gasto 
+                nuevoGasto.innerHTML = `
+                    ${nombre}
+                    <span class="badge badge-primary badge-pill">$ ${cantidad}</span>
+        
+                `
+                // boton borrar gasto
+                const btnborrar = document.createElement(`button`)
+                btnborrar.classList.add(`btn`, `btn-danger`, `borrar-gasto`)
+                nuevoGasto.appendChild(btnborrar)
+        
+                // insertar al html
+                gastosListado.appendChild(nuevoGasto)
+        
+        
+        
+            })
+    }
+
+
     }
 
 
@@ -53,8 +107,9 @@ function preguntarPresupuesto(){
     Presupuesto = new presupuesto(preguntar)
     ui.insertarPresupuesto(Presupuesto)
 }
+// insertar gastos a la lista
 function agregarGasto(){
-    
+   
 
 }
 function eliminarGasto(){
