@@ -123,6 +123,51 @@ class UI{
         
         
         }
+
+        mayor(gastos){
+            // gastos.forEach(gasto=>{
+            //     m =[]
+            //     m.push(gasto)
+            //     console.log(gasto)
+            // })
+            
+            // const mayor =  Math.max(Presupuesto.gastos)
+            // const mayor = Number(Math.max(gastos))
+            // console.log(mayor)
+            // const div = document.createElement(`div`)
+            // div.classList.add(`text-center`,`alert-warning`)
+            // if ( gastos != null ){
+            //     div.textContent=mayor
+            //     document.querySelector(`#restante`).insertBefore(div,formulario)
+            // }
+           
+            //     if (gastos.length === 0) {
+            //         console.log("La lista de gastos está vacía.");
+            //         return;
+            //     }
+                
+            //     const mayor = Math.max(...gastos);
+            //   console.log("El gasto mayor es:", mayor);
+                
+            //   const div = document.createElement('div');
+            //  div.classList.add('text-center', 'alert-warning');
+            //   div.textContent = "El gasto mayor es: " + mayor;
+            //     document.querySelector('#restante').insertBefore(div, formulario);
+            
+            // if (gastos.length == 0) {
+            //     console.log("La lista de gastos está vacía.");
+            //     return;
+            // }
+            
+            const mayor = Math.max(...gastos.map(gasto => gasto.cantidad));
+            console.log("El gasto mayor es:", mayor);
+            
+            const div = document.createElement('div');
+            div.classList.add('text-center', 'alert-warning');
+            div.textContent = "El gasto mayor es: " + mayor;
+            document.querySelector('.presupuesto').insertBefore(div, restante);
+
+        }
         
 
 
@@ -163,14 +208,16 @@ function agregarGasto(e){
         // Pasa los gastos para que se impriman
         const {gastos} = Presupuesto
         ui.agregarGastolistado(gastos)
-        // cambiar la lase que avisa si se va temrinando
+        // cambiar la clase que avisa si se va temrinando
         ui.comprobarPresupuesto(Presupuesto)
         // Actualiza el presupuesto
         const{restante} = Presupuesto
         ui.actualizarRestante(restante)
+        ui.mayor(gastos)
         // Eliminar del DOM
         formulario.reset()
     }
+    
    
 
 }
