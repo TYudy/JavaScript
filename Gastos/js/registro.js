@@ -31,16 +31,20 @@ class presupuesto{
     calcularMayor(){
         
             
-            if (this.gastos.length === 0) {
-                ui.mayor("No hay gastos registrados.")
+            if (this.gastos.length == 0) {
+                const m = "No hay gastos registrados."
+                ui.mayor( m)
+                console.log("No hay gastos registrados.")
                 
             }
                 let mayor = this.gastos[0].cantidad;
                 for (let i = 1; i < this.gastos.length; i++) {
                 if (this.gastos[i].cantidad > mayor) {
                     mayor = this.gastos[i].cantidad;
+                    var nom = this.gastos[i].nombre
                 }
-                m = "El gasto mayor es: ", mayor;
+                const m = `El gasto mayor es: ${nom}` ;
+                console.log("El gasto mayor es: ", nom)
                 ui.mayor(m)
             
 
