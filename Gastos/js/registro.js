@@ -106,6 +106,7 @@ function preguntarPresupuesto(){
     }
     Presupuesto = new presupuesto(preguntar)
     ui.insertarPresupuesto(Presupuesto)
+    
 }
 // insertar gastos a la lista
 function agregarGasto(){
