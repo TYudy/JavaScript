@@ -27,8 +27,39 @@ class presupuesto{
         const gastado = this.gastos.reduce((total,gasto) => total + gasto.cantidad, 0);
         this.restante = this.presupuesto - gastado;
     } 
+
+    calcularMayor(){
+        
+            
+            if (this.gastos.length === 0) {
+                ui.mayor("No hay gastos registrados.")
+                
+            }
+                let mayor = this.gastos[0].cantidad;
+                for (let i = 1; i < this.gastos.length; i++) {
+                if (this.gastos[i].cantidad > mayor) {
+                    mayor = this.gastos[i].cantidad;
+                }
+                m = "El gasto mayor es: ", mayor;
+                ui.mayor(m)
+            
+
+            }
+        
+           
+        
+            
+        
+            // const mayor = this.gastos.reduce((maximo, gasto) => {
+            //     return (gasto.cantidad > maximo) ? gasto.cantidad : maximo;
+            // }, this.gastos[0].cantidad);
+            
+            // 
+            // console.log("El gasto mayor es: ", mayor);
+        
+    }
     eliminarGasto(id){
-        this.gastos = this.gastos.filter(gasto => gasto.id.toString() !==1);
+        this.gastos = this.gastos.filter(gasto => gasto.id.toString() !== id);
         this.calcularRestante()
     }  
 }
@@ -124,54 +155,30 @@ class UI{
         
         }
 
-        mayor(gastos){
-            // gastos.forEach(gasto=>{
-            //     m =[]
-            //     m.push(gasto)
-            //     console.log(gasto)
-            // })
-            
-            // const mayor =  Math.max(Presupuesto.gastos)
-            // const mayor = Number(Math.max(gastos))
-            // console.log(mayor)
-            // const div = document.createElement(`div`)
-            // div.classList.add(`text-center`,`alert-warning`)
-            // if ( gastos != null ){
-            //     div.textContent=mayor
-            //     document.querySelector(`#restante`).insertBefore(div,formulario)
+        mayor(m){
+
+            let alerta = document.createElement('div')
+            alerta.classList.add(`text-center`,`alert`)
+            alerta.textContent = m
+
+            const rest = document.querySelector('.presupuesto')
+            // const restanteref = document.querySelector('.restante')
+            rest.appendChild(alerta)
+            // if (restanteref.nextSibling) {
+            //     rest.insertBefore(alerta, restanteref.nextSibling);
+            // } else {
+            //     rest.appendChild(alerta);
             // }
+
+            
+        }
            
-            //     if (gastos.length === 0) {
-            //         console.log("La lista de gastos está vacía.");
-            //         return;
-            //     }
-                
-            //     const mayor = Math.max(...gastos);
-            //   console.log("El gasto mayor es:", mayor);
-                
-            //   const div = document.createElement('div');
-            //  div.classList.add('text-center', 'alert-warning');
-            //   div.textContent = "El gasto mayor es: " + mayor;
-            //     document.querySelector('#restante').insertBefore(div, formulario);
-            
-            // if (gastos.length == 0) {
-            //     console.log("La lista de gastos está vacía.");
-            //     return;
-            // }
-            
-            const mayor = Math.max(...gastos.map(gasto => gasto.cantidad));
-            console.log("El gasto mayor es:", mayor);
-            
-            const div = document.createElement('div');
-            div.classList.add('text-center', 'alert-warning');
-            div.textContent = "El gasto mayor es: " + mayor;
-            document.querySelector('.presupuesto').insertBefore(div, restante);
 
         }
         
 
 
-    }
+    
 
 
 
@@ -204,6 +211,7 @@ function agregarGasto(e){
         const gasto = {nombre, cantidad, id: Date.now()};
         // añadir nuevo gasto
         Presupuesto.agregarGasto(gasto)
+        
         // insertar en el html
         ui.imprimirAlerta('Correcto','correcto')
         // Pasa los gastos para que se impriman
@@ -214,10 +222,11 @@ function agregarGasto(e){
         // Actualiza el presupuesto
         const{restante} = Presupuesto
         ui.actualizarRestante(restante)
-        ui.mayor(gastos)
+        
         // Eliminar del DOM
         formulario.reset()
     }
+    Presupuesto.calcularMayor()
     
    
 
