@@ -31,24 +31,27 @@ class presupuesto{
     calcularMayor(){
         
             
-            if (this.gastos.length == 0) {
-                const m = "No hay gastos registrados."
-                ui.mayor( m)
-                console.log("No hay gastos registrados.")
+            // if (this.gastos.length == 0) {
+            //     var m = "No hay gastos registrados."
                 
-            }
+            //     console.log("No hay gastos registrados.")
+                
+            // }
+
+            
                 let mayor = this.gastos[0].cantidad;
                 for (let i = 1; i < this.gastos.length; i++) {
                 if (this.gastos[i].cantidad > mayor) {
                     mayor = this.gastos[i].cantidad;
-                    var nom = this.gastos[i].nombre
+                    var nom = this.gastos[i].nombre;
                 }
-                const m = `El gasto mayor es: ${nom}` ;
-                console.log("El gasto mayor es: ", nom)
-                ui.mayor(m)
-            
 
             }
+            var m = `El gasto mayor es "${nom}" con un valor de ${mayor} ` ;
+                ui.mayor(m)    
+            
+
+           
         
            
         
@@ -123,6 +126,7 @@ class UI{
                 // boton borrar gasto
                 const btnborrar = document.createElement(`button`)
                 btnborrar.classList.add(`btn`, `btn-danger`, `borrar-gasto`)
+                btnborrar.textContent
                 nuevoGasto.appendChild(btnborrar)
         
                 // insertar al html
@@ -162,7 +166,7 @@ class UI{
         mayor(m){
 
             let alerta = document.createElement('div')
-            alerta.classList.add(`text-center`,`alert`)
+            alerta.classList.add(`text-center`,`alert`, `mayor`)
             alerta.textContent = m
 
             const rest = document.querySelector('.presupuesto')
@@ -173,6 +177,12 @@ class UI{
             // } else {
             //     rest.appendChild(alerta);
             // }
+
+             setTimeout(()=>{
+            document.querySelector(`.mayor`).remove()
+
+
+        }, 800)
 
             
         }
@@ -208,13 +218,19 @@ function agregarGasto(e){
     // comprobas que los campos no esten vacios
     if(nombre == '' || cantidad == ''){
         ui.imprimirAlerta('Ambos campos son obligatorios','error')
-    }else if(cantidad <= 0 || isNaN(cantidad)){
+    }
+    else if( isNaN(nombre) == false ){ 
+    ui.imprimirAlerta('No se permiten numeros en el nombre','error')
+
+    }
+    else if(cantidad <= 0 || isNaN(cantidad)){
         // si hay una cantidad negativa o letras
         ui.imprimirAlerta('Cantidad no valida', 'error')
     }else{
         const gasto = {nombre, cantidad, id: Date.now()};
         // añadir nuevo gasto
         Presupuesto.agregarGasto(gasto)
+        Presupuesto.calcularMayor()
         
         // insertar en el html
         ui.imprimirAlerta('Correcto','correcto')
@@ -226,11 +242,13 @@ function agregarGasto(e){
         // Actualiza el presupuesto
         const{restante} = Presupuesto
         ui.actualizarRestante(restante)
+
+        
         
         // Eliminar del DOM
         formulario.reset()
     }
-    Presupuesto.calcularMayor()
+    
     
    
 
